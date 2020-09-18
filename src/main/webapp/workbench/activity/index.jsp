@@ -14,6 +14,8 @@
     <meta name="description" content="">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/materialdesignicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="js/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="js/bootstrap-datepicker/bootstrap-datepicker3.min.css">
     <link href="css/style.min.css" rel="stylesheet">
 </head>
 <body>
@@ -98,12 +100,12 @@
                                 <input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1">
                             </div>
                             <div class="input-group">
-                                <span class="input-group-addon" id="basic-addon3">开始日期</span>
-                                <input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1">
+                                <span class="input-group-addon js-datepicker" id="basic-addon3">开始日期</span>
+                                <input type="text" class="form-control js-datepicker" placeholder="yyyy-mm-dd">
                             </div>
                             <div class="input-group">
-                                <span class="input-group-addon" id="basic-addon4">结束日期</span>
-                                <input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1">
+                                <span class="input-group-addon js-datepicker" id="basic-addon4">结束日期</span>
+                                <input type="text" class="form-control js-datepicker" placeholder="yyyy-mm-dd">
                             </div>
                             <button class="btn btn-default" type="submit">查询</button>
                         </form>
@@ -113,7 +115,44 @@
                 <div class="row">
                     <div class="card">
                         <div class="card-header">
-                            <button class="btn btn-label btn-primary"><label><i class="mid mdi mdi-plus"></i></label>创建</button>
+                            <button class="btn btn-label btn-primary" data-toggle="modal" data-target="#myModal"><label><i class="mid mdi mdi-plus"></i></label>创建</button>
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;">
+                                <div class="modal-dialog modal-md" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">创建市场活动</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <%--<div class="col-xs-6">--%>
+                                                    <%--<input class="form-control" type="text" placeholder=".col-xs-6">--%>
+                                                <%--</div>--%>
+
+                                                <%--<div class="col-xs-6">--%>
+                                                    <%--<input class="form-control" type="text" placeholder=".col-xs-6">--%>
+                                                <%--</div>--%>
+                                                <div class="form-group col-xs-6">
+                                                    <label class="col-md-4 control-label" style="margin-right: -30px">所有者*</label>
+                                                    <div class="col-md-8">
+                                                        <input class="form-control input-sm" type="text" name="example-hf-email" placeholder="">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group  col-xs-6">
+                                                    <label class="col-md-4 control-label" style="margin-right: -30px">名称*</label>
+                                                    <div class="col-md-8">
+                                                        <input class="form-control input-sm" type="text" name="" placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                            <button type="button" class="btn btn-primary">点击保存</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <button class="btn btn-label btn-info"><label><i class="mid mdi mdi-pencil"></i></label>修改</button>
                             <button class="btn btn-label btn-danger"><label><i class="mid mdi mdi-close"></i></label> 删除</button>
                         </div>
@@ -188,5 +227,7 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/perfect-scrollbar.min.js"></script>
 <script type="text/javascript" src="js/main.min.js"></script>
+<script src="js/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<script src="js/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js"></script>
 </body>
 </html>
