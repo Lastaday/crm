@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * ClassName:UserController
+ * ClassName:ActivityController
  * Package:cn.dpocket.crm.settings.web.controller
  * Description:
  * Date:2020/9/3 17:02

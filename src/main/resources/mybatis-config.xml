@@ -10,6 +10,7 @@
     </settings>
     <typeAliases>
         <package name="cn.dpocket.crm.settings.domain" />
+        <package name="cn.dpocket.crm.workbench.domain" />
     </typeAliases>
     
     <environments default="development">
@@ -26,6 +27,7 @@
 
     <mappers>
         <package name="cn.dpocket.crm.settings.dao" />
+        <package name="cn.dpocket.crm.workbench.dao" />
     </mappers>
 
 

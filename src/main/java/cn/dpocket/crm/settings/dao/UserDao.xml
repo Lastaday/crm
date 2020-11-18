@@ -7,6 +7,9 @@
       select * from tbl_user where loginAct = #{loginAct} and loginPwd = #{loginPwd}
     </select>
 
+    <select id="getUserList" resultType="User">
+        select * from tbl_user
+    </select>
     <!--<insert id="">-->
         <!--insert into student values(#{id}, #{name}, #{email}, #{age})-->
     <!--</insert>-->

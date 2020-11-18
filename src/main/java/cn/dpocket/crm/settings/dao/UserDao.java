@@ -2,6 +2,7 @@ package cn.dpocket.crm.settings.dao;
 
 import cn.dpocket.crm.settings.domain.User;
 
+import java.util.List;
 import java.util.Map; /**
  * ClassName:UserDao
  * Package:cn.dpocket.crm.settings.dao
@@ -12,4 +13,6 @@ import java.util.Map; /**
 public interface UserDao {
 
     User login(Map<String, String> map);
+
+    List<User> getUserList();
 }
