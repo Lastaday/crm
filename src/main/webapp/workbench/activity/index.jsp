@@ -542,7 +542,7 @@
                 * */
                 let html = "";
                 $.each(data.dataList, function (i, n) {
-                    html += '<tr><th scope="row"><input type="checkbox" name="xz" value="' + n.id + '"></th><td><a href="workbench/activity/detail.html">' + n.name + '</></td>';
+                    html += '<tr><th scope="row"><input type="checkbox" name="xz" value="' + n.id + '"></th><td><a href="workbench/activity/detail.do?id=' + n.id + '">' + n.name + '</></td>';
                     html += '<td>' + n.owner + '</td>';
                     html += '<td>' + n.startDate + '</td>';
                     html += '<td>' + n.endDate + '</td>';
