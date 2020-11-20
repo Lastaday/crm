@@ -123,8 +123,17 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                             <span class="pull-left" style="font-size: 20px">备注</span>
                         </div>
                         <div class="card-body">
-                            <h5>哎呦</h5>
-                            <span>市场活动-发传单 2020-11-01 由zhangsan</span>
+                            <div class="remarkDiv" style="height: 60px">
+                                <img title="zhangsan" src="images/users/timg.jpg" style="height: 30px; width: 30px">
+                                <div style="position: relative; top: -40px; left: 40px">
+                                    <h5>哎呦</h5>
+                                    <span style="color: gray">市场活动-</span><b>发传单</b><small style="color: gray">2020-11-01 由zhangsan</small>
+                                    <div style="position: relative; top: -50px; left: 500px; height: 30px; width: 100px; display: none;">
+                                        <a class="myHref" href=""><span class="mid mdi mdi-pencil" style="color: #E6E6E6; font-size: 20px"></span></a>
+                                        <a class="myHref" href=""><span class="mid mdi mdi-close" style="color: #E6E6E6; font-size: 20px"></span></a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -141,7 +150,22 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 <script type="text/javascript" src="js/main.min.js"></script>
 <script type="text/javascript" src="js/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
 <script type="text/javascript" src="js/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js"></script>
-
+<script type="text/javascript">
+    $(function () {
+        $(".remarkDiv").mouseover(function () {
+            $(this).children("div").children("div").show();
+        });
+        $(".remarkDiv").mouseout(function () {
+            $(this).children("div").children("div").hide();
+        });
+        $(".myHref").mouseover(function () {
+            $(this).children("span").css("color", "red");
+        });
+        $(".myHref").mouseout(function () {
+            $(this).children("span").css("color", "#E6E6E6");
+        });
+    });
+</script>
 
 </body>
 </html>
