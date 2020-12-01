@@ -2,7 +2,9 @@ package cn.dpocket.crm.workbench.service;
 
 import cn.dpocket.crm.vo.PaginationVO;
 import cn.dpocket.crm.workbench.domain.Activity;
+import cn.dpocket.crm.workbench.domain.ActivityRemark;
 
+import java.util.List;
 import java.util.Map; /**
  * ClassName:ActivityService
  * Package:cn.dpocket.crm.workbench.service
@@ -22,4 +24,8 @@ public interface ActivityService {
     boolean update(Activity a);
 
     Activity detail(String id);
+
+    List<ActivityRemark> getRemarkListByAid(String aid);
+
+    boolean deleteRemark(String id);
 }

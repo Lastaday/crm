@@ -6,6 +6,7 @@ import cn.dpocket.crm.settings.service.impl.UserServiceImpl;
 import cn.dpocket.crm.utils.*;
 import cn.dpocket.crm.vo.PaginationVO;
 import cn.dpocket.crm.workbench.domain.Activity;
+import cn.dpocket.crm.workbench.domain.ActivityRemark;
 import cn.dpocket.crm.workbench.service.ActivityService;
 import cn.dpocket.crm.workbench.service.impl.ActivityServiceImpl;
 
@@ -47,9 +48,29 @@ public class ActivityController extends HttpServlet {
             update(request, response);
         }else if("/workbench/activity/detail.do".equals(path)){
             detail(request, response);
+        }else if("/workbench/activity/getRemarkListByAid.do".equals(path)){
+            getRemarkListByAid(request, response);
+        }else if("/workbench/activity/deleteRemark.do".equals(path)){
+            deleteRemark(request, response);
         }
 
 
+    }
+
+    private void deleteRemark(HttpServletRequest request, HttpServletResponse response) {
+        System.out.println("删除remark列表的操作！");
+        String id = request.getParameter("id");
+        ActivityService as = (ActivityService)ServiceFactory.getService(new ActivityServiceImpl());
+        boolean flag = as.deleteRemark(id);
+        PrintJson.printJsonFlag(response, flag);
+    }
+
+    private void getRemarkListByAid(HttpServletRequest request, HttpServletResponse response) {
+        System.out.println("进入到获取remark列表的操作！");
+        String aid = request.getParameter("activityId");
+        ActivityService as = (ActivityService)ServiceFactory.getService(new ActivityServiceImpl());
+        List<ActivityRemark> arList = as.getRemarkListByAid(aid);
+        PrintJson.printJsonObj(response, arList);
     }
 
     private void detail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{

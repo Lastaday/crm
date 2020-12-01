@@ -118,21 +118,41 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                             </div>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card" id="remarkBody">
                         <div class="card-header">
                             <span class="pull-left" style="font-size: 20px">备注</span>
                         </div>
                         <div class="card-body">
-                            <div class="remarkDiv" style="height: 60px">
-                                <img title="zhangsan" src="images/users/timg.jpg" style="height: 30px; width: 30px">
-                                <div style="position: relative; top: -40px; left: 40px">
-                                    <h5>哎呦</h5>
-                                    <span style="color: gray">市场活动-</span><b>发传单</b><small style="color: gray">2020-11-01 由zhangsan</small>
-                                    <div style="position: relative; top: -50px; left: 500px; height: 30px; width: 100px; display: none;">
-                                        <a class="myHref" href=""><span class="mid mdi mdi-pencil" style="color: #E6E6E6; font-size: 20px"></span></a>
-                                        <a class="myHref" href=""><span class="mid mdi mdi-close" style="color: #E6E6E6; font-size: 20px"></span></a>
-                                    </div>
-                                </div>
+                            <%--<div class="remarkDiv" style="height: 60px">--%>
+                                <%--<img title="zhangsan" src="images/users/timg.jpg" style="height: 30px; width: 30px">--%>
+                                <%--<div style="position: relative; top: -40px; left: 40px">--%>
+                                    <%--<h5>哎呦1</h5>--%>
+                                    <%--<span style="color: gray">市场活动-</span><b>发传单1</b><small style="color: gray">2020-11-01 由zhangsan</small>--%>
+                                    <%--<div style="position: relative; top: -50px; left: 500px; height: 30px; width: 100px; display: none;">--%>
+                                        <%--<a class="myHref" href=""><span class="mid mdi mdi-pencil" style="color: #E6E6E6; font-size: 20px"></span></a>--%>
+                                        <%--<a class="myHref" href=""><span class="mid mdi mdi-close" style="color: #E6E6E6; font-size: 20px"></span></a>--%>
+                                    <%--</div>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                            <%--<div class="remarkDiv" style="height: 60px">--%>
+                                <%--<img title="zhangsan" src="images/users/timg.jpg" style="height: 30px; width: 30px">--%>
+                                <%--<div style="position: relative; top: -40px; left: 40px">--%>
+                                    <%--<h5>哎呦2</h5>--%>
+                                    <%--<span style="color: gray">市场活动-</span><b>发传单2</b><small style="color: gray">2020-11-01 由zhangsan</small>--%>
+                                    <%--<div style="position: relative; top: -50px; left: 500px; height: 30px; width: 100px; display: none;">--%>
+                                        <%--<a class="myHref" href=""><span class="mid mdi mdi-pencil" style="color: #E6E6E6; font-size: 20px"></span></a>--%>
+                                        <%--<a class="myHref" href=""><span class="mid mdi mdi-close" style="color: #E6E6E6; font-size: 20px"></span></a>--%>
+                                    <%--</div>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                            <div id="remarkDiv" style="height: 120px">
+                                <form role="form" style="">
+                                    <textarea id="remark" class="form-control" style="width: 50%" rows="2" placeholder="添加备注"></textarea>
+                                    <p id="cancelAndSaveBtn" style="margin-top: 20px">
+                                        <button id="cancelBtn" type="button" class="btn btn-default">取消</button>
+                                        <button type="button" class="btn btn-primary" id="saveRemarkBtn">保存</button>
+                                    </p>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -152,19 +172,88 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 <script type="text/javascript" src="js/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js"></script>
 <script type="text/javascript">
     $(function () {
-        $(".remarkDiv").mouseover(function () {
+        // $(".remarkDiv").mouseover(function () {
+        //     $(this).children("div").children("div").show();
+        // });
+        // $(".remarkDiv").mouseout(function () {
+        //     $(this).children("div").children("div").hide();
+        // });
+        // $(".myHref").mouseover(function () {
+        //     $(this).children("span").css("color", "red");
+        // });
+        // $(".myHref").mouseout(function () {
+        //     $(this).children("span").css("color", "#E6E6E6");
+        // });
+
+        // 在页面加载完毕后，展现与该活动关联的备注列表
+        showRemarkList();
+        // 添加删除按钮动态添加
+        $("#remarkBody").on("mouseover", ".remarkDiv", function () {
             $(this).children("div").children("div").show();
         });
-        $(".remarkDiv").mouseout(function () {
+        $("#remarkBody").on("mouseout", ".remarkDiv", function () {
             $(this).children("div").children("div").hide();
         });
-        $(".myHref").mouseover(function () {
+        $("#remarkBody").on("mouseover", ".myHref", function () {
             $(this).children("span").css("color", "red");
         });
-        $(".myHref").mouseout(function () {
+        $("#remarkBody").on("mouseout", ".myHref", function () {
             $(this).children("span").css("color", "#E6E6E6");
         });
+
+
     });
+    function showRemarkList() {
+        $.ajax({
+            url:"workbench/activity/getRemarkListByAid.do",
+            data:{
+                "activityId": "${a.id}",
+            },
+            type: "get",
+            dataType: "json",
+            success: function (data) {
+                /*
+                * data:{[{remark1}, {remark2}, {3}]}
+                * */
+                let html = "";
+                $.each(data, function (i, n) {
+                    html += '<div id="' + n.id + '" class="remarkDiv" style="height: 60px">';
+                    html += '<img title="zhangsan" src="images/users/timg.jpg" style="height: 30px; width: 30px">';
+                    html += '<div style="position: relative; top: -40px; left: 40px">';
+                    html += '<h5>' + n.noteContent + '</h5>';
+                    html += '<span style="color: gray">市场活动-</span><b>${a.name}</b><small style="color: gray">' + (n.editFlag==0?n.createTime:n.editTime) + ' 由' + (n.editFlag==0?n.createBy:n.editBy) + '</small>';
+                    html += '<div style="position: relative; top: -50px; left: 500px; height: 30px; width: 100px; display: none;">';
+                    html += '<a class="myHref" href="javascript:void(0);"><span class="mid mdi mdi-pencil" style="color: #E6E6E6; font-size: 20px"></span></a>';
+                    html += '<a class="myHref" href="javascript:void(0);" onclick="deleteRemark(\'' + n.id + '\')"><span class="mid mdi mdi-close" style="color: #E6E6E6; font-size: 20px"></span></a>';
+                    html += '</div>';
+                    html += '</div>';
+                    html += '</div>';
+                });
+                $("#remarkDiv").before(html);
+            }
+        });
+    }
+    function deleteRemark(id) {
+        $.ajax({
+            url:"workbench/activity/deleteRemark.do",
+            data:{
+                "id": id,
+            },
+            type: "post",
+            dataType: "json",
+            success: function (data) {
+                /*
+                * data:{"success", "true/false"}
+                * */
+                if(data.success){
+                    $("#" + id).remove();
+                }else{
+                    alert("删除备注失败！");
+                }
+
+            }
+        });
+    }
 </script>
 
 </body>

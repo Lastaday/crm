@@ -1,5 +1,9 @@
 package cn.dpocket.crm.workbench.dao;
 
+import cn.dpocket.crm.workbench.domain.ActivityRemark;
+
+import java.util.List;
+
 /**
  * ClassName:ActivityRemarkDao
  * Package:cn.dpocket.crm.workbench.dao
@@ -11,4 +15,8 @@ public interface ActivityRemarkDao {
     int getCountByAids(String[] ids);
 
     int deleteByAids(String[] ids);
+
+    List<ActivityRemark> getRemarkListByAid(String aid);
+
+    int deleteRemark(String id);
 }

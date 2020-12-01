@@ -92,4 +92,18 @@ public class ActivityServiceImpl implements ActivityService{
         Activity a = activityDao.detail(id);
         return a;
     }
+
+    public List<ActivityRemark> getRemarkListByAid(String aid) {
+        List<ActivityRemark> arList = activityRemarkDao.getRemarkListByAid(aid);
+        return arList;
+    }
+
+    public boolean deleteRemark(String id) {
+        boolean flag = true;
+        int count = activityRemarkDao.deleteRemark(id);
+        if(count != 1){
+            flag = false;
+        }
+        return flag;
+    }
 }
