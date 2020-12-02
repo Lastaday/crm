@@ -35,9 +35,9 @@
 
                 <nav class="sidebar-main">
                     <ul class="nav nav-drawer">
-                        <li class="nav-item active"> <a href="workbench/index.jsp"><i class="mdi mdi-home"></i> 工作台</a> </li>
+                        <li class="nav-item"> <a href="workbench/index.jsp"><i class="mdi mdi-home"></i> 工作台</a> </li>
                         <li class="nav-item active"> <a href="workbench/activity/index.jsp"><i class="mdi mdi-palette"></i> 市场活动</a> </li>
-
+                        <li class="nav-item"> <a href="workbench/clue/index.jsp"><i class="mdi mdi-palette"></i> 线索(潜在客户)</a> </li>
                     </ul>
                 </nav>
 
