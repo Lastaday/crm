@@ -69,7 +69,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                             <ul class="dropdown-menu dropdown-menu-right">
                                 <li> <a href="lyear_pages_profile.html"><i class="mdi mdi-account"></i> 个人信息</a> </li>
                                 <li> <a href="lyear_pages_edit_pwd.html"><i class="mdi mdi-lock-outline"></i> 修改密码</a> </li>
-                                <li> <a href="javascript:void(0)"><i class="mdi mdi-delete"></i> 清空缓存</a></li>
+                                <li> <a href="settings/dictionary/type/index.jsp"><i class="mdi mdi-delete"></i> 数据字典</a></li>
                                 <li class="divider"></li>
                                 <li> <a href="lyear_pages_login.html"><i class="mdi mdi-logout-variant"></i> 退出登录</a> </li>
                             </ul>
@@ -89,25 +89,16 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 
             <div class="card">
                 <div class="card-header">
-                    <!-- 返回按钮 -->
-                    <div style="position: relative; top: 35px; left: 10px;">
-                        <a href="javascript:void(0);" onclick="window.history.back();"><span class="glyphicon glyphicon-arrow-left" style="font-size: 20px; color: #DDDDDD"></span></a>
-                    </div>
-                    <!-- 大标题 -->
-                    <div style="position: relative; left: 40px; top: -30px;">
-                        <div class="page-header">
-                            <h3>李四先生 <small>动力节点</small></h3>
-                        </div>
-                        <div style="position: relative; height: 50px; width: 500px;  top: -72px; left: 700px;">
-                            <button type="button" class="btn btn-default" onclick="window.location.href='convert.html';"><span class="glyphicon glyphicon-retweet"></span> 转换</button>
-                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#editClueModal"><span class="glyphicon glyphicon-edit"></span> 编辑</button>
-                            <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span> 删除</button>
-                        </div>
-                    </div>
+                        <a href="javascript:void(0);" onclick="window.history.back();" style="" class="pull-left"><span class="mdi mdi-arrow-left-bold" style="font-size: 20px; color: #DDDDDD; margin-right: 10px"></span></a>
+                        <h3 class="pull-left">李四先生 <small>动力节点</small></h3>
+
+                    <button type="button" class="btn btn-default pull-right" onclick="window.location.href='convert.html';"><span class="glyphicon glyphicon-retweet"></span> 转换</button>
+                    <button type="button" class="btn btn-default pull-right" data-toggle="modal" data-target="#editClueModal"><span class="glyphicon glyphicon-edit"></span> 编辑</button>
+                    <button type="button" class="btn btn-danger pull-right"><span class="glyphicon glyphicon-minus"></span> 删除</button>
                 </div>
                 <div class="card-body">
                     <!-- 详细信息 -->
-                    <div style="position: relative; top: -70px;">
+                    <div style="position: relative; top: 0px;">
                         <div style="position: relative; left: 40px; height: 30px;">
                             <div style="width: 300px; color: gray;">名称</div>
                             <div style="width: 300px;position: relative; left: 200px; top: -20px;"><b>李四先生</b></div>
@@ -124,7 +115,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                             <div style="height: 1px; width: 400px; background: #D5D5D5; position: relative; top: -60px;"></div>
                             <div style="height: 1px; width: 400px; background: #D5D5D5; position: relative; top: -60px; left: 450px;"></div>
                         </div>
-                        <div style="position: relative; left: 40px; height: 30px; top: 20px;">
+                        <div style="position: relative; left: 40px; height: 35px; top: 20px;">
                             <div style="width: 300px; color: gray;">邮箱</div>
                             <div style="width: 300px;position: relative; left: 200px; top: -20px;"><b>lisi@bjpowernode.com</b></div>
                             <div style="width: 300px;position: relative; left: 450px; top: -40px; color: gray;">公司座机</div>
@@ -132,7 +123,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                             <div style="height: 1px; width: 400px; background: #D5D5D5; position: relative; top: -60px;"></div>
                             <div style="height: 1px; width: 400px; background: #D5D5D5; position: relative; top: -60px; left: 450px;"></div>
                         </div>
-                        <div style="position: relative; left: 40px; height: 30px; top: 30px;">
+                        <div style="position: relative; left: 40px; height: 45px; top: 30px;">
                             <div style="width: 300px; color: gray;">公司网站</div>
                             <div style="width: 300px;position: relative; left: 200px; top: -20px;"><b>http://www.bjpowernode.com</b></div>
                             <div style="width: 300px;position: relative; left: 450px; top: -40px; color: gray;">手机</div>
@@ -140,7 +131,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                             <div style="height: 1px; width: 400px; background: #D5D5D5; position: relative; top: -60px;"></div>
                             <div style="height: 1px; width: 400px; background: #D5D5D5; position: relative; top: -60px; left: 450px;"></div>
                         </div>
-                        <div style="position: relative; left: 40px; height: 30px; top: 40px;">
+                        <div style="position: relative; left: 40px; height: 45px; top: 30px;">
                             <div style="width: 300px; color: gray;">线索状态</div>
                             <div style="width: 300px;position: relative; left: 200px; top: -20px;"><b>已联系</b></div>
                             <div style="width: 300px;position: relative; left: 450px; top: -40px; color: gray;">线索来源</div>
@@ -148,17 +139,17 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                             <div style="height: 1px; width: 400px; background: #D5D5D5; position: relative; top: -60px;"></div>
                             <div style="height: 1px; width: 400px; background: #D5D5D5; position: relative; top: -60px; left: 450px;"></div>
                         </div>
-                        <div style="position: relative; left: 40px; height: 30px; top: 50px;">
+                        <div style="position: relative; left: 40px; height: 45px; top: 30px;">
                             <div style="width: 300px; color: gray;">创建者</div>
                             <div style="width: 500px;position: relative; left: 200px; top: -20px;"><b>zhangsan&nbsp;&nbsp;</b><small style="font-size: 10px; color: gray;">2017-01-18 10:10:10</small></div>
                             <div style="height: 1px; width: 550px; background: #D5D5D5; position: relative; top: -20px;"></div>
                         </div>
-                        <div style="position: relative; left: 40px; height: 30px; top: 60px;">
+                        <div style="position: relative; left: 40px; height: 45px; top: 30px;">
                             <div style="width: 300px; color: gray;">修改者</div>
                             <div style="width: 500px;position: relative; left: 200px; top: -20px;"><b>zhangsan&nbsp;&nbsp;</b><small style="font-size: 10px; color: gray;">2017-01-19 10:10:10</small></div>
                             <div style="height: 1px; width: 550px; background: #D5D5D5; position: relative; top: -20px;"></div>
                         </div>
-                        <div style="position: relative; left: 40px; height: 30px; top: 70px;">
+                        <div style="position: relative; left: 40px; height: 45px; top: 30px;">
                             <div style="width: 300px; color: gray;">描述</div>
                             <div style="width: 630px;position: relative; left: 200px; top: -20px;">
                                 <b>
@@ -167,7 +158,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                             </div>
                             <div style="height: 1px; width: 850px; background: #D5D5D5; position: relative; top: -20px;"></div>
                         </div>
-                        <div style="position: relative; left: 40px; height: 30px; top: 80px;">
+                        <div style="position: relative; left: 40px; height: 45px; top: 30px;">
                             <div style="width: 300px; color: gray;">联系纪要</div>
                             <div style="width: 630px;position: relative; left: 200px; top: -20px;">
                                 <b>
@@ -176,12 +167,12 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                             </div>
                             <div style="height: 1px; width: 850px; background: #D5D5D5; position: relative; top: -20px;"></div>
                         </div>
-                        <div style="position: relative; left: 40px; height: 30px; top: 90px;">
+                        <div style="position: relative; left: 40px; height: 45px; top: 30px;">
                             <div style="width: 300px; color: gray;">下次联系时间</div>
                             <div style="width: 300px;position: relative; left: 200px; top: -20px;"><b>2017-05-01</b></div>
                             <div style="height: 1px; width: 400px; background: #D5D5D5; position: relative; top: -20px; "></div>
                         </div>
-                        <div style="position: relative; left: 40px; height: 30px; top: 100px;">
+                        <div style="position: relative; left: 40px; height: 45px; top: 30px;">
                             <div style="width: 300px; color: gray;">详细地址</div>
                             <div style="width: 630px;position: relative; left: 200px; top: -20px;">
                                 <b>
@@ -191,6 +182,90 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                             <div style="height: 1px; width: 850px; background: #D5D5D5; position: relative; top: -20px;"></div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h4>备注</h4>
+                </div>
+                <div class="card-body">
+                    <!-- 备注1 -->
+                    <div class="remarkDiv" style="height: 60px;">
+                        <img title="zhangsan" src="images/user-thumbnail.png" style="width: 30px; height:30px;">
+                        <div style="position: relative; top: -40px; left: 40px;" >
+                            <h5>哎呦！</h5>
+                            <font color="gray">线索</font> <font color="gray">-</font> <b>李四先生-动力节点</b> <small style="color: gray;"> 2017-01-22 10:10:10 由zhangsan</small>
+                            <div style="position: relative; left: 500px; top: -30px; height: 30px; width: 100px; display: none;">
+                                <a class="myHref" href="javascript:void(0);"><span class="glyphicon glyphicon-edit" style="font-size: 20px; color: #E6E6E6;"></span></a>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <a class="myHref" href="javascript:void(0);"><span class="glyphicon glyphicon-remove" style="font-size: 20px; color: #E6E6E6;"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 备注2 -->
+                    <div class="remarkDiv" style="height: 60px;">
+                        <img title="zhangsan" src="images/user-thumbnail.png" style="width: 30px; height:30px;">
+                        <div style="position: relative; top: -40px; left: 40px;" >
+                            <h5>呵呵！</h5>
+                            <font color="gray">线索</font> <font color="gray">-</font> <b>李四先生-动力节点</b> <small style="color: gray;"> 2017-01-22 10:20:10 由zhangsan</small>
+                            <div style="position: relative; left: 500px; top: -30px; height: 30px; width: 100px; display: none;">
+                                <a class="myHref" href="javascript:void(0);"><span class="glyphicon glyphicon-edit" style="font-size: 20px; color: #E6E6E6;"></span></a>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <a class="myHref" href="javascript:void(0);"><span class="glyphicon glyphicon-remove" style="font-size: 20px; color: #E6E6E6;"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="remarkDiv" style="background-color: #E6E6E6; width: 870px; height: 90px;">
+                        <form role="form" style="position: relative;top: 10px; left: 10px;">
+                            <textarea id="remark" class="form-control" style="width: 850px; resize : none;" rows="2"  placeholder="添加备注..."></textarea>
+                            <p id="cancelAndSaveBtn" style="position: relative;left: 737px; top: 10px; display: none;">
+                                <button id="cancelBtn" type="button" class="btn btn-default">取消</button>
+                                <button type="button" class="btn btn-primary">保存</button>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header"><h4>市场活动</h4></div>
+                <div class="card-body">
+                    <div style="position: relative;top: 0px;" class="table-responsive">
+                        <table class="table table-hover" style="width: 900px;">
+                            <thead>
+                            <tr style="color: #B3B3B3;">
+                                <td>名称</td>
+                                <td>开始日期</td>
+                                <td>结束日期</td>
+                                <td>所有者</td>
+                                <td></td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>发传单</td>
+                                <td>2020-10-10</td>
+                                <td>2020-10-20</td>
+                                <td>zhangsan</td>
+                                <td><a href="javascript:void(0);"  style="text-decoration: none;"><span class="glyphicon glyphicon-remove"></span>解除关联</a></td>
+                            </tr>
+                            <tr>
+                                <td>发传单</td>
+                                <td>2020-10-10</td>
+                                <td>2020-10-20</td>
+                                <td>zhangsan</td>
+                                <td><a href="javascript:void(0);"  style="text-decoration: none;"><span class="glyphicon glyphicon-remove"></span>解除关联</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div>
+                        <a href="javascript:void(0);" data-toggle="modal" data-target="#bundModal" style="text-decoration: none;"><span class="glyphicon glyphicon-plus"></span>关联市场活动</a>
+                    </div>
+
+                    <div style="height: 200px;"></div>
                 </div>
             </div>
         </main>

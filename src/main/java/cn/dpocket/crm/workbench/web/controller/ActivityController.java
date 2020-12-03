@@ -34,7 +34,6 @@ public class ActivityController extends HttpServlet {
         String path = request.getServletPath();
         System.out.println(path);
         if("/workbench/activity/getUserList.do".equals(path)){
-
             getUserList(request, response);
         }else if("/workbench/activity/save.do".equals(path)){
             save(request, response);
