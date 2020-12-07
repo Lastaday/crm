@@ -7,4 +7,7 @@ import java.util.List;
 public interface ClueActivityRelationDao {
 
 
+    int unbind(String id);
+
+    int bind(ClueActivityRelation car);
 }

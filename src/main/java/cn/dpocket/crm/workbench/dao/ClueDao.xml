@@ -5,8 +5,145 @@
 
 <mapper namespace="cn.dpocket.crm.workbench.dao.ClueDao">
 
+    <insert id="save">
+        insert into tbl_clue(
+            id,
+            fullname,
+            appellation,
+            owner,
+            company,
+            job,
+            email,
+            phone,
+            website,
+            mphone,
+            state,
+            source,
+            createBy,
+            createTime,
+            description,
+            contactSummary,
+            nextContactTime,
+            address
+        )values(
+            #{id},
+            #{fullname},
+            #{appellation},
+            #{owner},
+            #{company},
+            #{job},
+            #{email},
+            #{phone},
+            #{website},
+            #{mphone},
+            #{state},
+            #{source},
+            #{createBy},
+            #{createTime},
+            #{description},
+            #{contactSummary},
+            #{nextContactTime},
+            #{address}
+        )
+    </insert>
 
-  	
+    <select id="getTotalByCondition" resultType="Integer">
+        SELECT
+        count(*)
+        FROM tbl_clue a JOIN tbl_user u on a.owner = u.id
+        <where>
+            <if test="fullname!=null and fullname!=''">
+                a.fullname like '%' #{fullname} '%'
+            </if>
+            <if test="owner!=null and owner!=''">
+                and u.name like '%' #{owner} '%'
+            </if>
+            <if test="company!=null and company!=''">
+                and a.company like '%' #{company} '%'
+            </if>
+            <if test="phone!=null and phone!=''">
+                and a.phone like '%' #{phone} '%'
+            </if>
+            <if test="mphone!=null and mphone!=''">
+                and a.mphone like '%' #{mphone} '%'
+            </if>
+            <if test="state!=null and state!=''">
+                and a.state like '%' #{state} '%'
+            </if>
+            <if test="source!=null and source!=''">
+                and a.source like '%' #{source} '%'
+            </if>
+        </where>
+    </select>
+    <select id="getClueListByCondition" resultType="Clue">
+        SELECT
+        a.id,
+        a.fullname,
+        u.name as owner,
+        a.company,
+        a.phone,
+        a.mphone,
+        a.state,
+        a.source
+        FROM tbl_clue a JOIN tbl_user u on a.owner = u.id
+        <where>
+            <if test="fullname!=null and fullname!=''">
+                a.fullname like '%' #{fullname} '%'
+            </if>
+            <if test="owner!=null and owner!=''">
+                and u.name like '%' #{owner} '%'
+            </if>
+            <if test="company!=null and company!=''">
+                and a.company like '%' #{company} '%'
+            </if>
+            <if test="phone!=null and phone!=''">
+                and a.phone like '%' #{phone} '%'
+            </if>
+            <if test="mphone!=null and mphone!=''">
+                and a.mphone like '%' #{mphone} '%'
+            </if>
+            <if test="state!=null and state!=''">
+                and a.state like '%' #{state} '%'
+            </if>
+            <if test="source!=null and source!=''">
+                and a.source like '%' #{source} '%'
+            </if>
+        </where>
+        order by a.createTime DESC
+        limit #{skipCount}, #{pageSize}
+    </select>
+
+    <select id="detail" resultType="Clue">
+        select
+            a.id,
+            a.fullname,
+            a.appellation,
+            b.name as owner,
+            a.company,
+            a.job,
+            a.email,
+            a.phone,
+            a.website,
+            a.mphone,
+            a.state,
+            a.source,
+            a.createBy,
+            a.createTime,
+            a.editBy,
+            a.editTime,
+            a.description,
+            a.contactSummary,
+            a.nextContactTime,
+            a.address
+
+        from tbl_clue a join tbl_user b on a.owner = b.id where a.id=#{id}
+    </select>
+
+    <select id="getActivityListByClueId" resultType="Activity">
+        select car.id as id, a.name, u.name as owner,a.startDate,a.endDate from tbl_activity a join tbl_user u on a.owner=u.id join tbl_clue_activity_relation car on a.id = car.activityId where car.clueId = #{clueId}
+</select>
+
+
 </mapper>
 
 
