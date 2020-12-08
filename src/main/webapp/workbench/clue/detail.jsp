@@ -57,7 +57,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                             <span class="lyear-toggler-bar"></span>
                             <span class="lyear-toggler-bar"></span>
                         </div>
-                        <span class="navbar-page-title"> 市场活动列表 </span>
+                        <span class="navbar-page-title"> 线索 </span>
                     </div>
 
                     <ul class="topbar-right">
@@ -92,7 +92,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                         <a href="javascript:void(0);" onclick="window.history.back();" style="" class="pull-left"><span class="mdi mdi-arrow-left-bold" style="font-size: 20px; color: #DDDDDD; margin-right: 10px"></span></a>
                         <h3 class="pull-left">${c.fullname}${c.appellation} <small>${c.company}</small></h3>
 
-                    <button type="button" class="btn btn-default pull-right" onclick="window.location.href='convert.html';"><span class="glyphicon glyphicon-retweet"></span> 转换</button>
+                    <button type="button" class="btn btn-default pull-right" onclick="window.location.href='workbench/clue/convert.jsp?id=${c.id}&fullname=${c.fullname}&appellation=${c.appellation}&company=${c.company}&owner=${c.owner}';"><span class="glyphicon glyphicon-retweet"></span> 转换</button>
                     <button type="button" class="btn btn-default pull-right" data-toggle="modal" data-target="#editClueModal"><span class="glyphicon glyphicon-edit"></span> 编辑</button>
                     <button type="button" class="btn btn-danger pull-right"><span class="glyphicon glyphicon-minus"></span> 删除</button>
                 </div>
